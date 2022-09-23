@@ -12,11 +12,13 @@ const App = () => {
 
   useEffect(() => {
     const getLinks = async () => {
+      linksList.setIsLoading(true);
       const data = await getDocs(linksCollection);
       const links = data.docs.map((doc) => {
         return { ...doc.data() };
       });
       linksList.setLinks(links);
+      linksList.setIsLoading(false);
     };
 
     getLinks();

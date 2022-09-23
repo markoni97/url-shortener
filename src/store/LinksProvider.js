@@ -3,7 +3,8 @@ import LinksContext from './links-context';
 
 const linksState = {
   urlLinks: [],
-  isInitialGet: true
+  isInitialGet: true,
+  isLoading: false,
 };
 
 const linksReducer = (state, action) => {
@@ -16,18 +17,22 @@ const linksReducer = (state, action) => {
     }
     const updatedLinks = state.urlLinks.concat(action.payload.link);
 
-    return { urlLinks: updatedLinks, isInitialGet: false };
+    return { ...state, urlLinks: updatedLinks, isInitialGet: false };
   }
 
   if (action.type === 'REMOVE_ITEM') {
     const updatedLinks = state.urlLinks.filter(
       (link) => link.code !== action.payload.id
     );
-    return { urlLinks: updatedLinks, isInitialGet: false };
+    return { ...state, urlLinks: updatedLinks, isInitialGet: false };
   }
 
   if (action.type === 'SET_ITEMS') {
-    return { urlLinks: action.payload.urlLinks, isInitialGet: true };
+    return { ...state, urlLinks: action.payload.urlLinks, isInitialGet: true };
+  }
+
+  if (action.type === 'IS_LOADING') {
+    return { ...state, isLoading: action.payload.isLoading };
   }
 
   return linksState;
@@ -48,12 +53,21 @@ const LinksProvider = (props) => {
     dispatchLinksAction({ type: 'SET_ITEMS', payload: { urlLinks: urlLinks } });
   };
 
+  const setIsLoadingHandler = (isLoading) => {
+    dispatchLinksAction({
+      type: 'IS_LOADING',
+      payload: { isLoading: isLoading },
+    });
+  };
+
   const linksContext = {
     urlLinks: links.urlLinks,
     isInitialGet: links.isInitialGet,
+    isLoading: links.isLoading,
     addLink: addLinkHandler,
     removeLink: removeLinkHandler,
     setLinks: setLinksHandler,
+    setIsLoading: setIsLoadingHandler,
   };
 
   return (

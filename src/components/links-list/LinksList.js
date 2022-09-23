@@ -8,8 +8,12 @@ import classes from './LinksList.module.scss';
 const LinksList = () => {
   const linksList = useContext(LinksContext);
 
-  if (linksList.urlLinks.length < 1) {
+  if (linksList.isLoading) {
     return <Spinner />;
+  }
+
+  if(linksList.urlLinks.length < 1) {
+    return <p className={classes['no-links-message']}>You currently have no links</p>
   }
 
   const linksElement = linksList.urlLinks.map((link) => {

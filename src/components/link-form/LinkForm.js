@@ -46,6 +46,7 @@ const UrlForm = () => {
   return (
     <div className="wrapper">
       <h1 className={classes['title']}>URL Shortener</h1>
+      {error.message && <p className="error-message">{error.message}</p>}
       <form className={classes['form']} onSubmit={linkSubmitHandler}>
         <input
           className={classes['form__input']}
@@ -55,7 +56,7 @@ const UrlForm = () => {
         />
         <Button label="Shorten" style="secondary" />
       </form>
-      {error.message && <p className="error-message">{error.message}</p>}
+      
       {shortenedLink.url && <ShortenedLink link={shortenedLink} />}
     </div>
   );
