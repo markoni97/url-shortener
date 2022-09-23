@@ -1,0 +1,26 @@
+.main {
+  height: 100vh;
+  background-size: cover;
+
+  &__top {
+    height: auto;
+    padding: 2rem 2rem 12rem 2rem;
+    background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    overflow: visible;
+  }
+
+  &__bottom {
+    height: 20%;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 490px) {
+  .main {
+    &__top {
+      clip-path: none;
+      padding: 2rem;
+    }
+  }
+}

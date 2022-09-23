@@ -2,7 +2,7 @@
 
  const LinksContext = React.createContext({
   urlLinks: [],
-  isInitialGet: false,
+  isInitialGet: true,
   addLink: (link) => {},
   removeLink: (id) => {},
   setLinks: (linksList) => {}

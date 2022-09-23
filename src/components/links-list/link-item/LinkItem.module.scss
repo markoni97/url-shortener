@@ -1,0 +1,14 @@
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.8rem;
+  &__item {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #00203fff;
+  }
+}

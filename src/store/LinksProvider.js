@@ -3,7 +3,7 @@ import LinksContext from './links-context';
 
 const linksState = {
   urlLinks: [],
-  isInitialGet: false
+  isInitialGet: true
 };
 
 const linksReducer = (state, action) => {

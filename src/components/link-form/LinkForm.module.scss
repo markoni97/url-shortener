@@ -1,0 +1,41 @@
+.title {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 1rem + 3vw, 5rem);
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  background-color: white;
+  margin-bottom: 8rem;
+
+  &__input {
+    border: none;
+    padding: 1rem;
+    font-size: 2.5rem;
+    margin-right: 2rem;
+    outline-color: #3c1053ff;
+  }
+}
+
+@media (max-width: 490px) {
+  .form {
+    flex-direction: column;
+    margin-bottom: 5rem;
+
+    &__input {
+      margin-right: 0;
+      margin-bottom: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #3c1053ff;
+      font-size: 2.4rem;
+      padding: .5rem;
+    }
+  }
+}

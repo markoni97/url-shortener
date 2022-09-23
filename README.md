@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# URL shortener
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+An URL shortener is a website that reduces the length of your URL (Uniform Resource Locator). The idea is to minimize the web page address into something that's easier to remember and track.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+First download the source code to your computer. Then move into the root project folder and run:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```node
+npm install
+```
+After "npm install" finishes installing dependencies, then run:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```node
+npm start
+```
+This command starts the project localy on http://localhost:3000/
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The image below shows the design of the site. Site consists of two main parts. The first part is the link input field where the user inputs a URL that needs to be shortened. The second part is the URL links list that the user has previously shortened.
 
-### `npm run build`
+![Website design](https://firebasestorage.googleapis.com/v0/b/url-shortener-f8328.appspot.com/o/phase1.PNG?alt=media&token=205f30b8-3b9d-447c-b676-45914bb9d5a3)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To shorten a URL link, the user must copy the link into the input field and click on the shorten button. This is shown in the image below.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Website design](https://firebasestorage.googleapis.com/v0/b/url-shortener-f8328.appspot.com/o/phase2.PNG?alt=media&token=5e874ba6-66b9-42b5-b4ce-d5dd7f57d920)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After the user has clicked on the "Shorten" button, a card appears with the generated shorten link. The user can copy the link or click on the link.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Website design](https://firebasestorage.googleapis.com/v0/b/url-shortener-f8328.appspot.com/o/phase3.PNG?alt=media&token=71ef7f13-d780-4f90-a2a9-7f28026e2f43)

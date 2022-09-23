@@ -4,12 +4,11 @@ import LinksList from './components/links-list/LinksList';
 import LinkForm from './components/link-form/LinkForm';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { db } from './firebase-config';
-import './App.scss';
+import classes from './App.module.scss';
 
 const App = () => {
   const linksList = useContext(LinksContext);
   const linksCollection = collection(db, 'links');
-  const isInitialMount = useRef(true);
 
   useEffect(() => {
     const getLinks = async () => {
@@ -24,14 +23,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
     if (linksList.isInitialGet) {
       return;
     }
-
     const updateLinks = async () => {
       await addDoc(linksCollection, { ...linksList.urlLinks.slice(-1)[0] });
     };
@@ -40,9 +34,13 @@ const App = () => {
   }, [linksList.urlLinks]);
 
   return (
-    <main>
-      <LinkForm />
-      <LinksList />
+    <main className={classes['main']}>
+      <div className={classes['main__top']}>
+        <LinkForm />
+      </div>
+      <div className={classes['main__bottom']}>
+        <LinksList />
+      </div>
     </main>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import LinksContext from '../../store/links-context';
+import Button from '../ui/button/Button';
 
 import classes from './LinkForm.module.scss';
 import ShortenedLink from './shortened-link/ShortenedLink';
@@ -16,6 +17,12 @@ const UrlForm = () => {
 
   const linkSubmitHandler = async (e) => {
     e.preventDefault();
+
+    if (!link) {
+      setError({ message: 'Please enter a URL' });
+      return;
+    }
+
     const response = await fetch(
       `https://api.shrtco.de/v2/shorten?url=${link}`
     );
@@ -27,6 +34,7 @@ const UrlForm = () => {
       setLink('');
       return;
     }
+    setError({});
     setLink('');
     setShortenedLink({
       url: data.result.full_short_link,
@@ -36,18 +44,19 @@ const UrlForm = () => {
   };
 
   return (
-    <div>
-      <h1>URL Shortener</h1>
-      <form onSubmit={linkSubmitHandler}>
+    <div className="wrapper">
+      <h1 className={classes['title']}>URL Shortener</h1>
+      <form className={classes['form']} onSubmit={linkSubmitHandler}>
         <input
+          className={classes['form__input']}
           placeholder="Paste a long URL"
           onChange={linkChangeHandler}
           value={link}
         />
-        {error.code && <p>{error.message}</p>}
-        <button>Shorten</button>
+        <Button label="Shorten" style="secondary" />
       </form>
-      <ShortenedLink link={shortenedLink} />
+      {error.message && <p className="error-message">{error.message}</p>}
+      {shortenedLink.url && <ShortenedLink link={shortenedLink} />}
     </div>
   );
 };
